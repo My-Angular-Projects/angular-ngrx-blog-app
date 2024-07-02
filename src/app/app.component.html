@@ -1,0 +1,20 @@
+<mat-toolbar style="gap: 10px; margin-bottom: 10px">
+  <span style="cursor: pointer" routerLink="/">BlogApp</span>
+  <ng-container *ngIf="user$ | async">
+    <a routerLink="/add-post" mat-flat-button color="primary">Add post</a>
+  </ng-container>
+  <span class="spacer"></span>
+
+  <ng-container *ngIf="user$ | async as user; else unauthenticated">
+    <p style="margin: 0">{{ user.email }}</p>
+    <mat-icon>person</mat-icon>
+    <button mat-flat-button color="accent" (click)="logout()">Logout</button>
+  </ng-container>
+
+  <ng-template #unauthenticated>
+    <a routerLink="/login" mat-flat-button color="primary">Login</a>
+    <a routerLink="/register" mat-flat-button color="primary">Register</a>
+  </ng-template>
+</mat-toolbar>
+<router-outlet></router-outlet>
+<app-spinner [spinnerName]="spinnerName"></app-spinner>

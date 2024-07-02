@@ -1,0 +1,18 @@
+section {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  padding: 10px;
+}
+
+mat-card-header,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-header {
+  margin-bottom: 10px;
+}
